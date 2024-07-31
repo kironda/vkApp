@@ -10,6 +10,19 @@ import UIKit
 
 class GradientView: UIView {
     // MARK: - Interface
+    enum GradientType {
+        case axial
+        case radial
+        case conic
+    }
+    
+    /// Gradient type
+    var gradientType: GradientType = .radial {
+            didSet {
+                updateGradientType()
+            }
+        }
+    
     /// Gradient start color
     var startColor: UIColor = .white {
         didSet {
@@ -76,5 +89,13 @@ class GradientView: UIView {
     
     private func updateEndPoint() {
         gradientLayer.endPoint = endPoint
+    }
+    
+    private func updateGradientType() {
+        switch gradientType{
+        case .axial: gradientLayer.type = .axial
+        case .conic: gradientLayer.type = .conic
+        case .radial: gradientLayer.type = .radial
+        }
     }
 }
