@@ -27,9 +27,8 @@ extension WelcomeViewController {
     private func gradientViewSettings() -> GradientView {
         let view = GradientView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.startColor = .cyan
-        view.endColor = .gray
-        view.type = CAGradientLayerType.radial
+        view.startColor = Color.Gradient.startColor
+        view.endColor = Color.Gradient.endColor
         return view
     }
     
