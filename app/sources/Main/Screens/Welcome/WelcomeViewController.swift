@@ -29,7 +29,7 @@ extension WelcomeViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.startColor = .cyan
         view.endColor = .gray
-        view.gradientType = .conic
+        view.type = CAGradientLayerType.radial
         return view
     }
     
