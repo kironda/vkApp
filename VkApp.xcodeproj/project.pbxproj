@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040444472C61E80500DF3612 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 040444462C61E80500DF3612 /* images.xcassets */; };
+		040444492C61E84F00DF3612 /* String+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040444482C61E84F00DF3612 /* String+Image.swift */; };
 		041B9ED22C4BC8AA0035528E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041B9ED12C4BC8AA0035528E /* WelcomeViewController.swift */; };
 		04340B302C3E55B2008EA34F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04340B2F2C3E55B2008EA34F /* AppDelegate.swift */; };
 		04340B322C3E55B2008EA34F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04340B312C3E55B2008EA34F /* SceneDelegate.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		040444462C61E80500DF3612 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
+		040444482C61E84F00DF3612 /* String+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Image.swift"; sourceTree = "<group>"; };
 		041B9ED12C4BC8AA0035528E /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		04340B2C2C3E55B2008EA34F /* VkApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VkApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04340B2F2C3E55B2008EA34F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +111,7 @@
 			children = (
 				04340B382C3E55B4008EA34F /* app.xcassets */,
 				04ADB4882C5E3D060020F89C /* colors.xcassets */,
+				040444462C61E80500DF3612 /* images.xcassets */,
 			);
 			path = resources;
 			sourceTree = "<group>";
@@ -133,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				04ADB48E2C5E414A0020F89C /* String+Color.swift */,
+				040444482C61E84F00DF3612 /* String+Image.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -204,6 +210,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				040444472C61E80500DF3612 /* images.xcassets in Resources */,
 				04340B392C3E55B4008EA34F /* app.xcassets in Resources */,
 				04ADB4892C5E3D060020F89C /* colors.xcassets in Resources */,
 			);
@@ -222,6 +229,7 @@
 				04C93A682C58BE0F00BA2ABE /* GradientView.swift in Sources */,
 				04ADB48C2C5E40300020F89C /* Color.swift in Sources */,
 				04340B322C3E55B2008EA34F /* SceneDelegate.swift in Sources */,
+				040444492C61E84F00DF3612 /* String+Image.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
