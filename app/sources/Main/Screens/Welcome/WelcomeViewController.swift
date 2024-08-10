@@ -22,6 +22,10 @@ class WelcomeViewController: UIViewController {
         welcomeStackViewSettings()
     }()
     
+    private lazy var welcomeButtonView: UIButton = {
+        welcomeButtonViewSettings()
+    }()
+    
     // MARK: - LiveCicle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,29 +38,36 @@ extension WelcomeViewController {
     // MARK: - Settings
     private func gradientViewSettings() -> GradientView {
         let view = GradientView()
+        
         view.translatesAutoresizingMaskIntoConstraints = false
         view.startColor = Color.Gradient.startColor
         view.endColor = Color.Gradient.endColor
+        
         return view
     }
     
     private func logoImageViewSettings() -> UIImageView {
         let view = UIImageView()
+        
         view.translatesAutoresizingMaskIntoConstraints = false
         view.image = "logo".uiImage
+        
         return view
     }
     
     private func labelSettings(string: String, fontSize: CGFloat) -> UILabel {
         let label = UILabel()
+        
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: fontSize)
         label.textColor = .white
         label.textAlignment = .center
         label.numberOfLines = 0
         label.text = string
+        
         return label
     }
+    
     private func welcomeStackViewSettings() -> UIStackView {
         let titleLabel = labelSettings(string: "Welcome", fontSize: 30.0)
         let descriptionLabel = labelSettings(string: "VK is the best social network on the planet", fontSize: 18.0)
@@ -70,11 +81,26 @@ extension WelcomeViewController {
         return stackView
     }
     
+    private func welcomeButtonViewSettings() -> UIButton {
+        let button = UIButton(type: .system)
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("GET STARTED", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 17)
+        button.clipsToBounds = true
+        button.backgroundColor = .vkButtonEnd
+        button.layer.cornerRadius = 10
+        
+        return button
+    }
+    
     // MARK: - Configure
     private func configureUI() {
         setupGradientView()
         setupLogoImageView()
         setupWelcomeViewStack()
+        setupWelcomeButtonView()
     }
     
     // MARK: - Setups
@@ -107,6 +133,17 @@ extension WelcomeViewController {
             welcomeStackView.centerXAnchor.constraint(equalTo: gradientView.centerXAnchor),
             welcomeStackView.centerYAnchor.constraint(equalTo: gradientView.centerYAnchor),
             welcomeStackView.widthAnchor.constraint(equalToConstant: 240.0)
+        ])
+    }
+    
+    private func setupWelcomeButtonView() {
+        gradientView.addSubview(welcomeButtonView)
+        
+        NSLayoutConstraint.activate([
+            welcomeButtonView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            welcomeButtonView.bottomAnchor.constraint(equalTo: welcomeStackView.bottomAnchor, constant: 270.0),
+            welcomeButtonView.widthAnchor.constraint(equalToConstant: 286),
+            welcomeButtonView.heightAnchor.constraint(equalToConstant: 56)
         ])
     }
 }
