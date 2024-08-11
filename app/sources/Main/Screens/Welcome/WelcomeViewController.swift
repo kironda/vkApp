@@ -22,18 +22,27 @@ class WelcomeViewController: UIViewController {
         welcomeStackViewSettings()
     }()
     
-    private lazy var welcomeButtonView: UIButton = {
-        welcomeButtonViewSettings()
+    private lazy var startButtonView: UIButton = {
+        startButtonViewSettings()
     }()
     
-    private lazy var secondButtonView: UIButton = {
-        secondButtonViewSettings()
+    private lazy var termsButtonView: UIButton = {
+        termsButtonViewSettings()
     }()
     
     // MARK: - LiveCicle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+    }
+    
+    // MARK: - Private
+    @objc private func startButtonTapped() {
+        print(#function)
+    }
+    
+    @objc private func termsButtonTapped() {
+        print(#function)
     }
 }
 
@@ -44,9 +53,8 @@ extension WelcomeViewController {
         let view = GradientView()
         
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.startColor = Color.Gradient.startColor
-        view.endColor = Color.Gradient.endColor
-        
+        view.startColor = Color.Gradient.start
+        view.endColor = Color.Gradient.end
         return view
     }
     
@@ -55,7 +63,6 @@ extension WelcomeViewController {
         
         view.translatesAutoresizingMaskIntoConstraints = false
         view.image = "logo".uiImage
-        
         return view
     }
     
@@ -68,7 +75,6 @@ extension WelcomeViewController {
         label.textAlignment = .center
         label.numberOfLines = 0
         label.text = string
-        
         return label
     }
     
@@ -81,33 +87,25 @@ extension WelcomeViewController {
         stackView.axis = .vertical
         stackView.alignment = .center
         stackView.spacing = 10.0
-        
         return stackView
     }
     
-    private func welcomeButtonViewSettings() -> UIButton {
-        let button = UIButton(type: .system)
-        
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("GET STARTED", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = .boldSystemFont(ofSize: 17)
-        button.clipsToBounds = true
-        button.backgroundColor = .vkButtonEnd
-        button.layer.cornerRadius = 10
-        
+    private func startButtonViewSettings() -> UIButton {
+        let button = CustomButton(title: "GET STARTED")
+        button.addTarget(self, action: #selector(startButtonTapped), for: .touchUpInside)
         return button
     }
     
-    private func secondButtonViewSettings() -> UIButton {
-        let secondButton = UIButton(type: .system)
+    private func termsButtonViewSettings() -> UIButton {
+        let termsButton = UIButton(type: .system)
         
-        secondButton.translatesAutoresizingMaskIntoConstraints = false
-        secondButton.setTitle("Terms of using the VK", for: .normal)
-        secondButton.titleLabel?.font = .boldSystemFont(ofSize: 15)
-        secondButton.setTitleColor(.vkTextSecondButton, for: .normal)
+        termsButton.translatesAutoresizingMaskIntoConstraints = false
+        termsButton.setTitle("Terms of using the VK", for: .normal)
+        termsButton.titleLabel?.font = .boldSystemFont(ofSize: 15)
+        termsButton.setTitleColor(Color.Brand.tint, for: .normal)
         
-        return secondButton
+        termsButton.addTarget(self, action: #selector(termsButtonTapped), for: .touchUpInside)
+        return termsButton
     }
     
     // MARK: - Configure
@@ -115,8 +113,8 @@ extension WelcomeViewController {
         setupGradientView()
         setupLogoImageView()
         setupWelcomeViewStack()
-        setupWelcomeButtonView()
-        setupSecondButtonView()
+        setupStartButtonView()
+        setupTermsButtonView()
     }
     
     // MARK: - Setups
@@ -152,25 +150,25 @@ extension WelcomeViewController {
         ])
     }
     
-    private func setupWelcomeButtonView() {
-        gradientView.addSubview(welcomeButtonView)
+    private func setupStartButtonView() {
+        gradientView.addSubview(startButtonView)
         
         NSLayoutConstraint.activate([
-            welcomeButtonView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            welcomeButtonView.bottomAnchor.constraint(equalTo: welcomeStackView.bottomAnchor, constant: 290.0),
-            welcomeButtonView.widthAnchor.constraint(equalToConstant: 286),
-            welcomeButtonView.heightAnchor.constraint(equalToConstant: 56)
+            startButtonView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            startButtonView.bottomAnchor.constraint(equalTo: welcomeStackView.bottomAnchor, constant: 290.0),
+            startButtonView.widthAnchor.constraint(equalToConstant: 286),
+            startButtonView.heightAnchor.constraint(equalToConstant: 56)
         ])
     }
     
-    private func setupSecondButtonView() {
-        gradientView.addSubview(secondButtonView)
+    private func setupTermsButtonView() {
+        gradientView.addSubview(termsButtonView)
         
         NSLayoutConstraint.activate([
-            secondButtonView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            secondButtonView.bottomAnchor.constraint(equalTo: welcomeButtonView.bottomAnchor, constant: 35.0),
-            secondButtonView.widthAnchor.constraint(equalToConstant: 286),
-            secondButtonView.heightAnchor.constraint(equalToConstant: 20)
+            termsButtonView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            termsButtonView.bottomAnchor.constraint(equalTo: startButtonView.bottomAnchor, constant: 35.0),
+            termsButtonView.widthAnchor.constraint(equalToConstant: 286),
+            termsButtonView.heightAnchor.constraint(equalToConstant: 20)
         ])
     }
 }
