@@ -26,6 +26,10 @@ class WelcomeViewController: UIViewController {
         welcomeButtonViewSettings()
     }()
     
+    private lazy var secondButtonView: UIButton = {
+        secondButtonViewSettings()
+    }()
+    
     // MARK: - LiveCicle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,12 +99,24 @@ extension WelcomeViewController {
         return button
     }
     
+    private func secondButtonViewSettings() -> UIButton {
+        let secondButton = UIButton(type: .system)
+        
+        secondButton.translatesAutoresizingMaskIntoConstraints = false
+        secondButton.setTitle("Terms of using the VK", for: .normal)
+        secondButton.titleLabel?.font = .boldSystemFont(ofSize: 15)
+        secondButton.setTitleColor(.vkTextSecondButton, for: .normal)
+        
+        return secondButton
+    }
+    
     // MARK: - Configure
     private func configureUI() {
         setupGradientView()
         setupLogoImageView()
         setupWelcomeViewStack()
         setupWelcomeButtonView()
+        setupSecondButtonView()
     }
     
     // MARK: - Setups
@@ -141,9 +157,20 @@ extension WelcomeViewController {
         
         NSLayoutConstraint.activate([
             welcomeButtonView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            welcomeButtonView.bottomAnchor.constraint(equalTo: welcomeStackView.bottomAnchor, constant: 270.0),
+            welcomeButtonView.bottomAnchor.constraint(equalTo: welcomeStackView.bottomAnchor, constant: 290.0),
             welcomeButtonView.widthAnchor.constraint(equalToConstant: 286),
             welcomeButtonView.heightAnchor.constraint(equalToConstant: 56)
+        ])
+    }
+    
+    private func setupSecondButtonView() {
+        gradientView.addSubview(secondButtonView)
+        
+        NSLayoutConstraint.activate([
+            secondButtonView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            secondButtonView.bottomAnchor.constraint(equalTo: welcomeButtonView.bottomAnchor, constant: 35.0),
+            secondButtonView.widthAnchor.constraint(equalToConstant: 286),
+            secondButtonView.heightAnchor.constraint(equalToConstant: 20)
         ])
     }
 }
