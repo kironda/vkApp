@@ -168,7 +168,7 @@ extension WelcomeViewController {
             termsButtonView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             termsButtonView.bottomAnchor.constraint(equalTo: startButtonView.bottomAnchor, constant: 35.0),
             termsButtonView.widthAnchor.constraint(equalToConstant: 286),
-            termsButtonView.heightAnchor.constraint(equalToConstant: 20)
+            termsButtonView.heightAnchor.constraint(equalToConstant: 25)
         ])
     }
 }
