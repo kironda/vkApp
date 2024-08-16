@@ -113,8 +113,8 @@ extension WelcomeViewController {
         setupGradientView()
         setupLogoImageView()
         setupWelcomeViewStack()
-        setupStartButtonView()
         setupTermsButtonView()
+        setupStartButtonView()
     }
     
     // MARK: - Setups
@@ -154,8 +154,8 @@ extension WelcomeViewController {
         gradientView.addSubview(startButtonView)
         
         NSLayoutConstraint.activate([
-            startButtonView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            startButtonView.bottomAnchor.constraint(equalTo: welcomeStackView.bottomAnchor, constant: 290.0),
+            startButtonView.centerXAnchor.constraint(equalTo: gradientView.centerXAnchor),
+            startButtonView.bottomAnchor.constraint(equalTo: termsButtonView.bottomAnchor, constant: -35.0),
             startButtonView.widthAnchor.constraint(equalToConstant: 286),
             startButtonView.heightAnchor.constraint(equalToConstant: 56)
         ])
@@ -165,8 +165,8 @@ extension WelcomeViewController {
         gradientView.addSubview(termsButtonView)
         
         NSLayoutConstraint.activate([
-            termsButtonView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            termsButtonView.bottomAnchor.constraint(equalTo: startButtonView.bottomAnchor, constant: 35.0),
+            termsButtonView.centerXAnchor.constraint(equalTo: gradientView.centerXAnchor),
+            termsButtonView.bottomAnchor.constraint(equalTo: gradientView.bottomAnchor, constant: -40.0),
             termsButtonView.widthAnchor.constraint(equalToConstant: 286),
             termsButtonView.heightAnchor.constraint(equalToConstant: 25)
         ])
