@@ -18,6 +18,7 @@
 		04ADB48C2C5E40300020F89C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ADB48B2C5E40300020F89C /* Color.swift */; };
 		04ADB48F2C5E414A0020F89C /* String+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ADB48E2C5E414A0020F89C /* String+Color.swift */; };
 		04C93A682C58BE0F00BA2ABE /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C93A672C58BE0F00BA2ABE /* GradientView.swift */; };
+		04D931C92C6F741700857F4A /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D931C82C6F741700857F4A /* FriendListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		04ADB48B2C5E40300020F89C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		04ADB48E2C5E414A0020F89C /* String+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Color.swift"; sourceTree = "<group>"; };
 		04C93A672C58BE0F00BA2ABE /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		04D931C82C6F741700857F4A /* FriendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 		041B9ECE2C4BC84F0035528E /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				04D931C72C6F733500857F4A /* Friends */,
 				041B9ECF2C4BC85D0035528E /* Welcome */,
 			);
 			path = Screens;
@@ -154,6 +157,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		04D931C72C6F733500857F4A /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				04D931C82C6F741700857F4A /* FriendListViewController.swift */,
+			);
+			path = Friends;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -228,6 +239,7 @@
 			files = (
 				041B9ED22C4BC8AA0035528E /* WelcomeViewController.swift in Sources */,
 				04340B302C3E55B2008EA34F /* AppDelegate.swift in Sources */,
+				04D931C92C6F741700857F4A /* FriendListViewController.swift in Sources */,
 				04ADB48F2C5E414A0020F89C /* String+Color.swift in Sources */,
 				04C93A682C58BE0F00BA2ABE /* GradientView.swift in Sources */,
 				04557C942C68CBFA006132A3 /* CustomButton.swift in Sources */,
