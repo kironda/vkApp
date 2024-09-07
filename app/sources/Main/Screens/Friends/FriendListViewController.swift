@@ -14,24 +14,40 @@ class FriendListViewController: UIViewController {
         tableViewSettings()
     }()
     
+    // MARK: - Properties
+    private var friendList = FriendList([])
+    
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .red
         configureUI()
+        fillData()
     }
     
+    private func fillData() {
+        friendList = createFriendListData()
+    }
 }
 
 // MARK: - UITableViewDataSource, UITableViewDelegate
 extension FriendListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            
+        return friendList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CommonViewCell.reuseId,
+                                                       for: indexPath) as? CommonViewCell,
+              let friend = friendList.friendAtIndex(indexPath.row) else {
+            return UITableViewCell()
         }
         
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            
-        }
+//        let model = FriendViewCellModel(friend: friend)
+//        cell.configure(with: model)
+        
+        return cell
+    }
 }
 
 // MARK: - UI
@@ -62,5 +78,46 @@ extension FriendListViewController {
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+    }
+}
+
+// MARK: - FillData
+extension FriendListViewController {
+    private func createFriendListData() -> FriendList {
+        let firstPerson = Friend(id: "1",
+                                 avatar: "avatar_1",
+                                 firstName: "Maria",
+                                 lastName: "Zvereva",
+                                 homeCity: "Moscow",
+                                 age: 22)
+        let secondPerson = Friend(id: "2",
+                                  avatar: "avatar_2",
+                                  firstName: "Anna",
+                                  lastName: "Tokareva",
+                                  homeCity: "Voronezh",
+                                  age: 27)
+        let thirdPerson = Friend(id: "3",
+                                 avatar: "avatar_3",
+                                 firstName: "Artem",
+                                 lastName: "Novikov",
+                                 homeCity: "Vologda",
+                                 age: 37)
+        let fourthPerson = Friend(id: "4",
+                                  avatar: "avatar_4",
+                                  firstName: "Polina",
+                                  lastName: "Starikova",
+                                  homeCity: "Saint Petersburg",
+                                  age: 29)
+        let fifthPerson = Friend(id: "5",
+                                 avatar: "avatar_5",
+                                 firstName: "Evgeniy",
+                                 lastName: "Ivanov",
+                                 homeCity: "Bryansk",
+                                 age: 34)
+        return FriendList([firstPerson,
+                           secondPerson,
+                           thirdPerson,
+                           fourthPerson,
+                           fifthPerson])
     }
 }
