@@ -34,5 +34,13 @@ struct Color {
         static var text: UIColor { "vk.brand.text".uiColor }
         static var tint: UIColor { "vk.brand.tint".uiColor }
     }
+    
+    // MARK: - Main
+    struct Main {
+        private init() {}
+        
+        static var text: UIColor { "vk.main.text".uiColor }
+        static var tint: UIColor { "vk.main.tint".uiColor }
+    }
 }
 

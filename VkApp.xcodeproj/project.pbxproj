@@ -17,6 +17,8 @@
 		0462968F2C85D6AF00071C3E /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0462968E2C85D6AF00071C3E /* Friend.swift */; };
 		046296912C85D89D00071C3E /* FriendList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046296902C85D89D00071C3E /* FriendList.swift */; };
 		046296942C85DEAF00071C3E /* CommonViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046296932C85DEAF00071C3E /* CommonViewCell.swift */; };
+		046296962C8C5FEB00071C3E /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046296952C8C5FEB00071C3E /* Configurable.swift */; };
+		046296992C8C688600071C3E /* FriendCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046296982C8C688600071C3E /* FriendCellViewModel.swift */; };
 		04ADB4892C5E3D060020F89C /* colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04ADB4882C5E3D060020F89C /* colors.xcassets */; };
 		04ADB48C2C5E40300020F89C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ADB48B2C5E40300020F89C /* Color.swift */; };
 		04ADB48F2C5E414A0020F89C /* String+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ADB48E2C5E414A0020F89C /* String+Color.swift */; };
@@ -37,6 +39,8 @@
 		0462968E2C85D6AF00071C3E /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		046296902C85D89D00071C3E /* FriendList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendList.swift; sourceTree = "<group>"; };
 		046296932C85DEAF00071C3E /* CommonViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViewCell.swift; sourceTree = "<group>"; };
+		046296952C8C5FEB00071C3E /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
+		046296982C8C688600071C3E /* FriendCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCellViewModel.swift; sourceTree = "<group>"; };
 		04ADB4882C5E3D060020F89C /* colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = colors.xcassets; sourceTree = "<group>"; };
 		04ADB48B2C5E40300020F89C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		04ADB48E2C5E414A0020F89C /* String+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Color.swift"; sourceTree = "<group>"; };
@@ -175,8 +179,17 @@
 			isa = PBXGroup;
 			children = (
 				046296932C85DEAF00071C3E /* CommonViewCell.swift */,
+				046296952C8C5FEB00071C3E /* Configurable.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		046296972C8C685E00071C3E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				046296982C8C688600071C3E /* FriendCellViewModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		04ADB48A2C5E3FF60020F89C /* Common */ = {
@@ -209,6 +222,7 @@
 		04D931C72C6F733500857F4A /* Friends */ = {
 			isa = PBXGroup;
 			children = (
+				046296972C8C685E00071C3E /* Model */,
 				04D931C82C6F741700857F4A /* FriendListViewController.swift */,
 			);
 			path = Friends;
@@ -292,8 +306,10 @@
 				04D931C92C6F741700857F4A /* FriendListViewController.swift in Sources */,
 				04ADB48F2C5E414A0020F89C /* String+Color.swift in Sources */,
 				04C93A682C58BE0F00BA2ABE /* GradientView.swift in Sources */,
+				046296992C8C688600071C3E /* FriendCellViewModel.swift in Sources */,
 				04557C942C68CBFA006132A3 /* CustomButton.swift in Sources */,
 				046296942C85DEAF00071C3E /* CommonViewCell.swift in Sources */,
+				046296962C8C5FEB00071C3E /* Configurable.swift in Sources */,
 				04ADB48C2C5E40300020F89C /* Color.swift in Sources */,
 				0462968F2C85D6AF00071C3E /* Friend.swift in Sources */,
 				04340B322C3E55B2008EA34F /* SceneDelegate.swift in Sources */,

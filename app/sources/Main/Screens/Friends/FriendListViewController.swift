@@ -43,10 +43,14 @@ extension FriendListViewController: UITableViewDataSource, UITableViewDelegate {
             return UITableViewCell()
         }
         
-//        let model = FriendViewCellModel(friend: friend)
-//        cell.configure(with: model)
+        let model = FriendCellViewModel(friend: friend)
+        cell.configure(with: model)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
@@ -57,7 +61,7 @@ extension FriendListViewController {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.sectionHeaderTopPadding = 0.0
-        tableView.separatorStyle = .none
+        tableView.separatorStyle = .singleLine
         tableView.delegate = self
         tableView.dataSource = self
         return tableView
@@ -70,6 +74,7 @@ extension FriendListViewController {
     
     // MARK: - Setups
     private func setupTableView() {
+        tableView.register(CommonViewCell.self, forCellReuseIdentifier: CommonViewCell.reuseId)
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
