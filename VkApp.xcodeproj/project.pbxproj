@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04040BC52CA188A600E78635 /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04040BC42CA188A600E78635 /* NavigationRouter.swift */; };
 		040444472C61E80500DF3612 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 040444462C61E80500DF3612 /* images.xcassets */; };
 		040444492C61E84F00DF3612 /* String+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040444482C61E84F00DF3612 /* String+Image.swift */; };
 		041B9ED22C4BC8AA0035528E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041B9ED12C4BC8AA0035528E /* WelcomeViewController.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04040BC42CA188A600E78635 /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
 		040444462C61E80500DF3612 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
 		040444482C61E84F00DF3612 /* String+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Image.swift"; sourceTree = "<group>"; };
 		041B9ED12C4BC8AA0035528E /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +61,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04040BC32CA1888400E78635 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				04040BC42CA188A600E78635 /* NavigationRouter.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
 		041B9ECD2C4BC8380035528E /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +205,7 @@
 		04ADB48A2C5E3FF60020F89C /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				04040BC32CA1888400E78635 /* Navigation */,
 				046296922C85DE5500071C3E /* Cell */,
 				04ADB48B2C5E40300020F89C /* Color.swift */,
 			);
@@ -308,6 +319,7 @@
 				04C93A682C58BE0F00BA2ABE /* GradientView.swift in Sources */,
 				046296992C8C688600071C3E /* FriendCellViewModel.swift in Sources */,
 				04557C942C68CBFA006132A3 /* CustomButton.swift in Sources */,
+				04040BC52CA188A600E78635 /* NavigationRouter.swift in Sources */,
 				046296942C85DEAF00071C3E /* CommonViewCell.swift in Sources */,
 				046296962C8C5FEB00071C3E /* Configurable.swift in Sources */,
 				04ADB48C2C5E40300020F89C /* Color.swift in Sources */,

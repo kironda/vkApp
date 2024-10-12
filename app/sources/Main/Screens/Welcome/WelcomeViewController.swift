@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol WelcomeViewControllerDelegate: AnyObject {
+    func userDidRequestStart()
+}
+
 class WelcomeViewController: UIViewController {
     // MARK: - UI
     private lazy var gradientView: GradientView = {
@@ -30,6 +34,9 @@ class WelcomeViewController: UIViewController {
         termsButtonViewSettings()
     }()
     
+    // MARK: - Properties
+    weak var delegate: WelcomeViewControllerDelegate?
+    
     // MARK: - LiveCicle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +45,7 @@ class WelcomeViewController: UIViewController {
     
     // MARK: - Private
     @objc private func startButtonTapped() {
-        print(#function)
+        delegate?.userDidRequestStart()
     }
     
     @objc private func termsButtonTapped() {

@@ -15,25 +15,39 @@ class FriendListViewController: UIViewController {
     }()
     
     // MARK: - Properties
-    private var friendList = FriendList([])
+    private var searchController = UISearchController(searchResultsController: nil)
+    private var filteredFriendList = FriendList([])
+    
+    private var friendList: FriendList {
+        createFriendListData()
+    }
+    
+    private var searchBarIsEmpty: Bool {
+        guard let text = searchController.searchBar.text else { return false }
+        return text.isEmpty
+    }
+    
+    private var isFiltering: Bool {
+        return searchController.isActive && !searchBarIsEmpty
+    }
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .red
         configureUI()
-        fillData()
     }
     
-    private func fillData() {
-        friendList = createFriendListData()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        searchController.isActive = true
     }
 }
 
 // MARK: - UITableViewDataSource, UITableViewDelegate
 extension FriendListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friendList.count
+        isFiltering ? filteredFriendList.count : friendList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -51,6 +65,18 @@ extension FriendListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let rowHeight: CGFloat = 60.0
+        return rowHeight
+    }
+}
+
+// MARK: - UISearchResultsUpdating
+extension FriendListViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        print(#function)
     }
 }
 
@@ -83,6 +109,21 @@ extension FriendListViewController {
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+    }
+    
+    private func setupSearchBar() {
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.showsCancelButton = false
+        navigationItem.searchController = searchController
+        
+        searchController.searchBar.showsScopeBar = true
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        definesPresentationContext = false
+        
+        searchController.searchBar.searchTextField.textColor = UIColor.black
+        searchController.searchBar.searchTextField.backgroundColor = UIColor.white
     }
 }
 
